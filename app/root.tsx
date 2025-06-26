@@ -7,6 +7,7 @@ import {
   ScrollRestoration,
   useRouteError,
 } from 'react-router';
+import { type Route } from './+types/root';
 import stylesheet from './app.css?url';
 import { Header } from './components/Header';
 import { BottomNav } from './components/BottomNav';
@@ -45,21 +46,29 @@ export default function App() {
   );
 }
 
-export function ErrorBoundary() {
-  const error = useRouteError();
-  return (
-    <Layout>
-      <div className="container mx-auto p-4 text-center">
-        <h1 className="text-2xl font-bold">Oops!</h1>
-        <p>Sorry, an unexpected error has occurred.</p>
-        {isRouteErrorResponse(error) && (
-          <p className="text-red-500">
-            <i>
-              {error.status} {error.statusText}
-            </i>
-          </p>
-        )}
+// ... ErrorBoundary() function remains the same
+
+export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
+  if (isRouteErrorResponse(error)) {
+    return (
+      <>
+        <h1>
+          {error.status} {error.statusText}
+        </h1>
+        <p>{error.data}</p>
+      </>
+    );
+  } else if (error instanceof Error) {
+    return (
+      <div>
+        <h1>Error</h1>
+        <p>{error.message}</p>
+        <p>The stack trace is:</p>
+        <pre>{error.stack}</pre>
       </div>
-    </Layout>
-  );
+    );
+  } else {
+    return <h1>Unknown Error</h1>;
+  }
 }
+
