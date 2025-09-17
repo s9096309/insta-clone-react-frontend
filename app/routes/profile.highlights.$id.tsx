@@ -1,7 +1,7 @@
 import { useLoaderData } from "react-router";
 import type { LoaderFunctionArgs } from "react-router";
 import { HighlightStory } from "~/components/HighlightStory";
-import { highlightSchema } from "~/schemas/highlight.schema"; // Correct import
+import { highlightSchema } from "~/schemas/highlights.schema"; // Correct import
 import { api } from "~/services/api";
 
 // The loader receives 'params' which contains the dynamic part of the URL.
