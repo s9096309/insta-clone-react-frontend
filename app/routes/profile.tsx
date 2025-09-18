@@ -2,44 +2,48 @@ import { Outlet, NavLink } from "react-router";
 
 export default function ProfileLayout() {
   const activeLinkStyle = {
-    borderBottom: "1px solid black",
+    borderBottom: "1px solid #333",
+    color: "#333",
     fontWeight: 600,
   };
 
   return (
-    <div>
+    <div className="w-full max-w-4xl mx-auto px-4">
       <div className="border-b border-gray-300">
-        <nav className="flex justify-center gap-16 text-sm text-gray-500">
+        <nav className="flex justify-center gap-8 text-xs font-semibold text-gray-400 uppercase tracking-widest">
           <NavLink
             to="/profile/posts/grid"
             style={({ isActive }) => (isActive ? activeLinkStyle : undefined)}
+            className="py-4"
           >
-            POSTS
+            Posts
           </NavLink>
           <NavLink
             to="/profile/reels/grid"
             style={({ isActive }) => (isActive ? activeLinkStyle : undefined)}
+            className="py-4"
           >
-            REELS
+            Reels
           </NavLink>
           <NavLink
             to="/profile/tagged/grid"
             style={({ isActive }) => (isActive ? activeLinkStyle : undefined)}
+            className="py-4"
           >
-            TAGGED
+            Tagged
           </NavLink>
-          {/* Add the new NavLink for Highlights */}
           <NavLink
             to="/profile/highlights"
             style={({ isActive }) => (isActive ? activeLinkStyle : undefined)}
+            className="py-4"
           >
-            HIGHLIGHTS
+            Highlights
           </NavLink>
         </nav>
       </div>
 
       <main>
-        {/* The content for each page renders here */}
+        {/* This Outlet is the placeholder where your grid pages will appear */}
         <Outlet />
       </main>
     </div>

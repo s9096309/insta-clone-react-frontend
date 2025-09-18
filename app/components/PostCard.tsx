@@ -7,7 +7,7 @@ export function PostCard({ post }: { post: Post }) {
         <p className='font-bold'>webeet_user</p>
       </div>
       <img
-        src={post.img_url}
+        src={post.img_url ?? ""}
         alt={post.caption || "Instagram post"}
         className='w-full h-auto aspect-square object-cover'
       />

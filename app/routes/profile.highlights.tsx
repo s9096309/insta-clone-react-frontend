@@ -15,6 +15,7 @@ export async function loader() {
 }
 
 export default function HighlightsLayout() {
+  // Add <typeof loader> to make the data type-safe
   const { highlights } = useLoaderData<typeof loader>();
 
   return (
