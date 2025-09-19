@@ -10,7 +10,7 @@
       },
       {
         "src": "/(.*)",
-        "dest": "/build/server/index.js"
+        "dest": "/build/index.js"
       }
     ]
   }
