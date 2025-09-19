@@ -1,10 +1,11 @@
-import { Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
+import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
 import { Header } from "./components/Header";
 import { BottomNav } from "./components/BottomNav";
-import "./app.css"; // <-- Import the CSS file directly here
+import "./app.css";
 
-// We are removing the 'links' export as it conflicts with the dev server
-// export function links() { ... }
+export function links() {
+  return [{ rel: "stylesheet", href: "/app.css" }];
+}
 
 export default function Root() {
   return (
@@ -13,7 +14,7 @@ export default function Root() {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
-        {/* React Router will handle the <link> tag for you when you import the css */}
+        <Links />
       </head>
       <body className="bg-gray-50">
         <Header />

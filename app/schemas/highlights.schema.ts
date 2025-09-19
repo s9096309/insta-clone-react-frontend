@@ -7,8 +7,6 @@ const highlightSchema = z.object({
 });
 
 const highlightsSchema = z.array(highlightSchema);
-
 type Highlight = z.infer<typeof highlightSchema>;
-
 export { highlightSchema, highlightsSchema };
 export type { Highlight };
